@@ -71,6 +71,15 @@ def main():
 
 main()
 
+# on an 8x8 board, there are 92 solutions
+# we are randomly picking 1/40320
+# on average, 92/40320 tries ~ 438.26 before a solution is found 
+
+# Found solution [3, 6, 2, 7, 1, 4, 0, 5] in 693 tries.
+# Found solution [5, 7, 1, 3, 0, 6, 4, 2] in 82 tries.
+# Found solution [3, 0, 4, 7, 1, 6, 2, 5] in 747 tries.
+# Found solution [1, 6, 4, 7, 0, 3, 5, 2] in 428 tries.
+# Found solution [6, 1, 3, 0, 7, 4, 2, 5] in 376 tries.
 
 ############################### TEST ###########################################
 
