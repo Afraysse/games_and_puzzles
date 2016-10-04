@@ -49,6 +49,29 @@ def has_clashes(the_board):
             return True 
     return False 
 
+# write a function that tries for and finds every solution 
+# need to reduce problem space - from 64! by using 8! and focusing on permutations 
+# 8! = 40320 is still too large to shuffle through 
+# random number module has shuffle that randomly permutes a list
+
+def main():
+    """ Find permutation solutions, limit at 10 for queen solutions (N!)."""
+    import random 
+    rn = random.Random()
+    tries = 0 
+    found = 0 
+    bd = list(range(8))
+    while found < 10:
+        rn.shuffle(bd)
+        tries += 1 
+        if not has_clashes(bd):
+            print("Found solution {0} in {1} tries.".format(bd, tries))
+            tries += 1 
+            found += 1 
+
+main()
+
+
 ############################### TEST ###########################################
 
 def test(did_pass):
