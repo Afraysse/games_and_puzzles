@@ -39,7 +39,15 @@ def col_clashes(bs, c):
             return True 
     return False            # no clashes - c is safe
 
+def has_clashes(the_board):
+    """ Determine if there are any queen clashes on diagonals. Assuming board is
+    a permutation of column numbers.
+    """
 
+    for c in range(1, len(the_board)):
+        if col_clashes(the_board, c):
+            return True 
+    return False 
 
 ############################### TEST ###########################################
 
