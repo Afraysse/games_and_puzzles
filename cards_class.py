@@ -62,17 +62,45 @@ class Deck:
 
         # total number of times the body is executed is fifty-two
 
-red_deck = Deck()
-blue_deck = Deck()
+    def __str__(self):
+        s = ""
+        for i in range(len(self.cards)):
+            s = s + " " * i + str(self.cards[i]) + "\n"
+        return s
+
+    def shuffle(self):
+        """ Shuffle the deck."""
+        import random 
+        rng = random.Random()       # create a random generator 
+        num_cards = len(self.cards)
+        for i in range(num_cards):
+            j = rng.randrange(i, num_cards)
+            (self.cards[i], self.cards[j]) = (self.cards[j], self.cards[i])
+
+    # OR - just use the shuffle function in random 
+
+    # def shuffle(self):
+    #     import random 
+    #     rng = random.Random()
+    #     rng.shuffle(self.cards)
+
+    def remove(self, card):
+        """ Remove a card from the deck."""
+        if card in self.cards:
+            self.cards.remove(card)
+            return True
+        return False
+
+    def pop(self):
+        """ Remove and return top card."""
+        return self.cards.pop()
+
+    def is_empty(self):
+        """ If there are no cards in deck."""
+        return self.cards == []
 
 
-
-
-
-
-
-
-
-
-
+# create two decks for card playing
+# red_deck = Deck()
+# blue_deck = Deck()
 
