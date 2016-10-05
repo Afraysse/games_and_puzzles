@@ -110,6 +110,30 @@ class Deck:
             hand = hands[i % num_hands]
             hand.add(card)
 
+# for each hand - inherits from Deck class
+class Hand(Deck):
+    
+    def __init__(self, name=""):
+        self.cards = []
+        self.name = name 
+
+    def __str__(self):
+        s = "Hand" + self.name
+        if self.is_empty():
+            s += " is empty\n"
+        else:
+            s += " contains\n"
+        return s + Deck.__str__(self)
+
+    def add(self, card):
+        self.cards.append(card)
+
+# 
+class CardGame:
+
+    def __init__(self):
+        self.deck = Deck()
+        self.deck.shuffle()
 
 # create two decks for card playing
 # red_deck = Deck()
