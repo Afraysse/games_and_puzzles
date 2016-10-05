@@ -7,8 +7,8 @@ class Card:
 
     # 'narf' keeps track of the 0th element in the list
     suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
-    ranks = ["narf", "Ace", "2", "3", "4", "5", "6", "7",
-            "8", "9", "10", "Jack", "Queen", "King"]
+    ranks = ["narf", "2", "3", "4", "5", "6", "7",
+            "8", "9", "10", "Jack", "Queen", "King", "Ace"]
 
     def __init__(self, suit=0, rank=0):
         self.suit = suit
@@ -27,8 +27,6 @@ class Card:
         if self.rank < other.rank: return -1 
         # if ranks are the same, it's a tie
         return 0
-
-    # with this ordering, Aces are lower than 2s
 
     # define six special methods
     def __eq__(self, other):
@@ -98,6 +96,19 @@ class Deck:
     def is_empty(self):
         """ If there are no cards in deck."""
         return self.cards == []
+
+    # hand is a list (or tuple) of hands
+    # num_cards is the total number to deal 
+    # if there aren't enough cards, the method deals all and stops
+    def deal(self, hands, num_cards=999):
+        """ Deal cards according to params."""
+        num_hands = len(hands)
+        for i in range(num_cards):
+            if self.empty():
+                break
+            card = self.pop()
+            hand = hands[i % num_hands]
+            hand.add(card)
 
 
 # create two decks for card playing
